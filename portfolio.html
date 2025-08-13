@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Construction & IT Portfolio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: 'Inter', sans-serif; }
+</style>
+</head>
+<body class="bg-gray-50">
+  <header class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+      <h1 class="text-xl font-bold">My Portfolio</h1>
+      <div class="space-x-2">
+        <button onclick="setLanguage('ru')" class="px-2 py-1 border rounded">RU</button>
+        <button onclick="setLanguage('en')" class="px-2 py-1 border rounded">EN</button>
+        <button onclick="setLanguage('fr')" class="px-2 py-1 border rounded">FR</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto p-4 space-y-12">
+    <section id="about" class="text-center">
+      <h2 class="text-3xl font-bold mb-4" data-i18n="about_title">About Me</h2>
+      <p class="text-gray-700" data-i18n="about_text">Experienced construction and IT professional with over 20 years of expertise...</p>
+    </section>
+
+    <section id="projects">
+      <h2 class="text-3xl font-bold mb-6" data-i18n="projects_title">Construction Projects</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+          <img src="https://via.placeholder.com/400x250" alt="Project" class="rounded mb-4 w-full h-48 object-cover" />
+          <h3 class="text-xl font-semibold" data-i18n="project1_title">Private House Renovation</h3>
+          <p class="text-gray-600" data-i18n="project1_desc">Complete renovation of a 200 m² property...</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="text-3xl font-bold mb-6" data-i18n="skills_title">Skills</h2>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-gray-700">
+        <li data-i18n="skill1">Project Management</li>
+        <li data-i18n="skill2">Material Procurement</li>
+        <li data-i18n="skill3">CAD/BIM Tools</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="text-center">
+      <h2 class="text-3xl font-bold mb-4" data-i18n="contact_title">Contact</h2>
+      <p class="mb-2" data-i18n="contact_email">Email: andretukila@gmail.com</p>
+      <p class="mb-2" data-i18n="contact_phone">Phone / WhatsApp: +1 263 880 2866</p>
+      <p class="mb-4" data-i18n="contact_name">TUKILA ANDRE</p>
+      <a href="cv.pdf" class="bg-blue-600 text-white px-4 py-2 rounded" data-i18n="download_cv">Download CV</a>
+    </section>
+  </main>
+
+<script>
+const translations = {
+  ru: {
+    about_title: 'Обо мне',
+    about_text: 'Профессионал в строительстве и IT с более чем 20-летним опытом...',
+    projects_title: 'Проекты в строительстве',
+    project1_title: 'Реконструкция частного дома',
+    project1_desc: 'Полная реконструкция дома площадью 200 м²...',
+    skills_title: 'Навыки',
+    skill1: 'Управление проектами',
+    skill2: 'Закупка материалов',
+    skill3: 'Инструменты CAD/BIM',
+    contact_title: 'Контакты',
+    contact_email: 'Эл. почта: andretukila@gmail.com',
+    contact_phone: 'Телефон / WhatsApp: +1 263 880 2866',
+    contact_name: 'TUKILA ANDRE',
+    download_cv: 'Скачать CV'
+  },
+  en: {
+    about_title: 'About Me',
+    about_text: 'Experienced construction and IT professional with over 20 years of expertise...',
+    projects_title: 'Construction Projects',
+    project1_title: 'Private House Renovation',
+    project1_desc: 'Complete renovation of a 200 m² property...',
+    skills_title: 'Skills',
+    skill1: 'Project Management',
+    skill2: 'Material Procurement',
+    skill3: 'CAD/BIM Tools',
+    contact_title: 'Contact',
+    contact_email: 'Email: andretukila@gmail.com',
+    contact_phone: 'Phone / WhatsApp: +1 263 880 2866',
+    contact_name: 'TUKILA ANDRE',
+    download_cv: 'Download CV'
+  },
+  fr: {
+    about_title: 'À propos de moi',
+    about_text: 'Professionnel de la construction et de l’informatique avec plus de 20 ans d’expérience...',
+    projects_title: 'Projets de construction',
+    project1_title: 'Rénovation de maison privée',
+    project1_desc: 'Rénovation complète d’une propriété de 200 m²...',
+    skills_title: 'Compétences',
+    skill1: 'Gestion de projet',
+    skill2: 'Approvisionnement en matériaux',
+    skill3: 'Outils CAD/BIM',
+    contact_title: 'Contact',
+    contact_email: 'E-mail : andretukila@gmail.com',
+    contact_phone: 'Téléphone / WhatsApp : +1 263 880 2866',
+    contact_name: 'TUKILA ANDRE',
+    download_cv: 'Télécharger le CV'
+  }
+};
+
+function setLanguage(lang) {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.textContent = translations[lang][key] || el.textContent;
+  });
+}
+
+setLanguage('en');
+</script>
+</body>
+</html>
